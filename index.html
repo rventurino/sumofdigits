@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      img {
+        border-radius: 10px;
+      }
+    </style>
+    <title>6kyu | Sum of Digits</title>
+  </head>
+  <body>
+    <h1>Sum of Digits / Digital Root</h1>
+    <h3>Instructions:</h3>
+    <p>
+      Digital root is the recursive sum of all the digits in a number. Given n,
+      take the sum of the digits of n. If that value has more than one digit,
+      continue reducing in this way until a single-digit number is produced. The
+      input will be a non-negative integer.
+    </p>
+    <h3>My Program:</h3>
+    <h5>Function:</h5>
+    <img src="code.jpg" alt="" />
+    <h5>Output of recursive (n%10)(final solution is 8):</h5>
+    <img src="output.jpg" alt="" />
+    <ol>
+      <h5>Methodology:</h5>
+      <li>
+        Base case: if n is zero, return n
+        <ul>
+          <li>
+            If n = 0 there is nothing left to calculate, because we are adding
+            digits (any number + 0 remains the same)
+          </li>
+        </ul>
+      </li>
+      <li>
+        <em>Recursively</em> calculate
+        <code>(n%10) + Math.floor(n/10) </code> until n = 0; Below is a
+        walk-through of this methodology using <strong>n = 116</strong> as an
+        example
+
+        <ul>
+          <li><strong>FIRST ITERATION</strong></li>
+          <li><strong>n</strong>% 10 = 6</li>
+          <li><strong>+ (plus)</strong></li>
+          <li>Math.floor(<strong>n</strong> / 10) = 11</li>
+          <li>
+            Entire Statement:<code
+              >return (6) + digital_root(Math.floor(11));</code
+            >
+          </li>
+
+          <li><strong>SECOND ITERATION</strong></li>
+          <li>n = 11</li>
+          <li>n is not equal to 0, so continue on</li>
+          <li>
+            Perform
+            <code>return (11 % 10) + digital_root(Math.floor(11 / 10));</code>
+          </li>
+          <li>
+            Which is the same as saying
+            <code>return (1) + digital_root(Math.floor(1));</code>
+          </li>
+          <li><strong>THIRD ITERATION</strong></li>
+          <li>
+            <code>return (1 % 10) + digital_root(Math.floor(1 / 10));</code>
+          </li>
+          <li>
+            Is the same as saying
+            <code><code>return (1) + digital_root(Math.floor(0));</code></code>
+          </li>
+          <li>
+            Note that the only part of the expression being sent back in to the
+            function recursively is digital_root(0), which means that the
+            function will return <strong>n</strong>, according to our base case.
+          </li>
+        </ul>
+      </li>
+      <li>
+        Finally, the function returns 8, via the recursive addition of the
+        digits of 116
+      </li>
+    </ol>
+    <script src="sumofdigits.js"></script>
+  </body>
+</html>
