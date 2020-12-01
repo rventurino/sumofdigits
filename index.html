@@ -20,13 +20,13 @@
     <title>6kyu | Sum of Digits</title>
   </head>
   <body>
-    <h1>Sum of Digits / Digital Root</h1>
+    <h1>Sum of Digits</h1>
     <h3>Instructions:</h3>
     <p>
-      Digital root is the recursive sum of all the digits in a number. Given n,
-      take the sum of the digits of n. If that value has more than one digit,
-      continue reducing in this way until a single-digit number is produced. The
-      input will be a non-negative integer.
+      Given a non-negative int n, return the sum of its digits recursively (no
+      loops). Note that mod (%) by 10 yields the rightmost digit (126 % 10 is
+      6), while divide (/) by 10 removes the rightmost digit (126 / 10 is 12).
+      sumDigits(126) → 9 sumDigits(49) → 13 sumDigits(12) → 3
     </p>
     <h3>My Program:</h3>
     <h5>Function:</h5>
